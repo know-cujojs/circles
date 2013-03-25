@@ -1,0 +1,94 @@
+/*
+ * Copyright 2012-2013 the original author or authors
+ * @license MIT, see LICENSE.txt for details
+ *
+ * @author Brian Cavalier
+ */
+
+* {
+    cursor: none;
+}
+body {
+    font-family: "Helvetica Nueue", Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    background: #000;
+}
+.last-key {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.keys {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    word-wrap: break-word;
+}
+.follow-mouse-box {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    border-radius: 20px;
+    background: cyan;
+    color: white;
+    opacity: .5;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    z-index: 100;
+}
+.follow-mouse-delay {
+    background: magenta;
+    z-index: 90;
+}
+.follow-mouse-trail {
+    background: #666;
+    -webkit-animation-name: expand-fade;
+    -webkit-animation-duration: .5s;
+    -moz-animation-name: expand-fade;
+    -moz-animation-duration: .5s;
+    z-index: 80;
+}
+.follow-mouse-click {
+    background: magenta;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    margin-top: -40px;
+    border-radius: 40px;
+    -webkit-animation-name: expand-fade;
+    -webkit-animation-duration: .5s;
+    -moz-animation-name: expand-fade;
+    -moz-animation-duration: .5s;
+    z-index: 60;
+}
+.follow-mouse-average {
+    background: yellow;
+    z-index: 70;
+}
+#circle-template, #mouse-click-template {
+    display: none;
+}
+
+@-webkit-keyframes expand-fade {
+    from {
+        -webkit-transform: scale3d(0.1, 0.1, 1.0);
+        opacity: .75;
+    }
+    to {
+        -webkit-transform: scale3d(1.5, 1.5, 1.0);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes expand-fade {
+    from {
+        -moz-transform: scale3d(0.1, 0.1, 1.0);
+        opacity: .75;
+    }
+    to {
+        -moz-transform: scale3d(1.5, 1.5, 1.0);
+        opacity: 0;
+    }
+}

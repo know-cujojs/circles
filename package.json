@@ -1,0 +1,26 @@
+{
+  "name": "circles",
+  "description": "Yay circles!",
+  "homepage": "http://github.com/know-cujojs/cirlces",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+    "express": "~3.0",
+    "msgs": "~0.3",
+    "sockjs": "",
+    "redis": ""
+  },
+  "devDependencies": {
+    "bower": "",
+    "buster": "",
+    "grunt-buster": "",
+    "grunt-css": "",
+    "grunt-html": "",
+    "json5": ""
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "node server",
+    "test": "grunt"
+  }
+}

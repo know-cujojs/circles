@@ -1,0 +1,7 @@
+{
+	"dependencies": {
+		"curl": "~0.7",
+		"clicks": "~0.1",
+		"msgs": "~0.3"
+	}
+}
