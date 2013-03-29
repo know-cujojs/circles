@@ -7,6 +7,10 @@
 
 var http, express, sockjs, redis, msgs, path, host, port, app, server, ws;
 
+if (process.env.VCAP_APPLICATION) {
+	require('cf-autoconfig');
+}
+
 http = require('http');
 express = require('express');
 sockjs = require('sockjs');

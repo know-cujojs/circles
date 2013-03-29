@@ -1,0 +1,14 @@
+---
+applications:
+- name: circles
+  memory: 128M
+  instances: 3
+  url: circles.demo.cujojs.com
+  path: .
+  services:
+    redis-circles:
+      label: redis
+      provider: core
+      version: '2.6'
+      plan: '100'
+  command: node .

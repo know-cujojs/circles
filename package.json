@@ -2,16 +2,18 @@
   "name": "circles",
   "description": "Yay circles!",
   "homepage": "http://github.com/know-cujojs/cirlces",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [],
+  "main": "server/main",
   "dependencies": {
     "express": "~3.0",
     "msgs": "~0.3",
     "sockjs": "",
-    "redis": ""
+    "redis": "",
+    "bower": "",
+    "cf-autoconfig": ""
   },
   "devDependencies": {
-    "bower": "",
     "buster": "",
     "grunt-buster": "",
     "grunt-css": "",
@@ -20,7 +22,10 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "start": "node server",
+    "start": "node .",
     "test": "grunt"
+  },
+  "engines": {
+    "node" : "~0.8"
   }
 }

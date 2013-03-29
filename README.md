@@ -35,53 +35,18 @@ Then in a browser navigate to http://localhost:8000/
 
 ## Running on Cloud Foundry
 
-You can see the app running at [http://msgs.cloudfoundry.com/](http://msgs.cloudfoundry.com/).
+You can see the app running at [http://circles.demo.cujojs.com/](http://circles.demo.cujojs.com/).
 
-    $ vmc apps
+    $ cf apps
+    Getting applications in production... OK
     
-    +-------------+----+---------+------------------------------+------------------------------+
-    | Application | #  | Health  | URLS                         | Services                     |
-    +-------------+----+---------+------------------------------+------------------------------+
-    | circles     | 3  | RUNNING | msgs.cloudfoundry.com        | circles-redis                |
-    +-------------+----+---------+------------------------------+------------------------------+
+    name      status    usage      plan   url                    
+    circles   running   3 x 128M   dev    circles.demo.cujojs.com
 
 Deploying to Cloud Foundry is simple.  There are just a couple things to keep in mind:
-* run `npm install` before `vmc push`
-* make sure you specify the runtime as node08 (Cloud Foundry defaults to the ancient Node 0.4)
+* run `npm install` before `cf push`
 * you must bind a redis instance, reusing an existing instance is ok, but dedicated is better
 * you must pick a unique URL
-
-The output from vmc should look something like this:
-
-    $ vmc push circles --runtime node08
-    Would you like to deploy from the current directory? [Yn]: y
-    Detected a Node.js Application, is this correct? [Yn]: y
-    Application Deployed URL [circles.cloudfoundry.com]: {pick something unique}.cloudfoundry.com
-    Memory reservation (128M, 256M, 512M, 1G, 2G) [64M]: 128
-    How many instances? [1]: 3
-    Bind existing services to 'circles'? [yN]: n
-    Create services to bind to 'circles'? [yN]: y
-    1: mongodb
-    2: mysql
-    3: postgresql
-    4: rabbitmq
-    5: redis
-    What kind of service?: redis
-    Specify the name of the service [redis-294ae]: circles-redis
-    Create another? [yN]: n
-    Would you like to save this configuration? [yN]: n
-    Creating Application: OK
-    Binding Service [circles-redis]: OK
-    Uploading Application:
-      Checking for available resources: OK
-      Processing resources: OK
-      Packing application: OK
-      Uploading (479K): OK
-    Push Status: OK
-    Staging Application 'circles': OK
-    Starting Application 'circles': OK
-
-You'll notice a couple things when the app is running on Cloud Foundry. There will be a slight lag from when you move your cursor to when the circle moves. This is caused by network latency between you and Cloud Foundry. The circle movement will also be jerky instead of smooth due to Cloud Foundry not supporting native WebSockets. SockJS will fall back to traditional HTTP requests and some message are batched into the same request.
 
 
 Contributors
@@ -103,6 +68,9 @@ circles is made available under the MIT license. See LICENSE.txt for details.
 
 Change Log
 ----------
+
+0.1.1
+- update Cloud Foundry info for latest CF kit
 
 0.1.0
 - first release, everything is new
