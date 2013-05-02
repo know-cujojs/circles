@@ -24,7 +24,7 @@ require('msgs/channels/pubsub');
 
 path = process.env.PWD + '/client';
 host = '127.0.0.1';
-port = 8000;
+port = process.env.PORT || 8000;
 
 // create http server
 app = express();
