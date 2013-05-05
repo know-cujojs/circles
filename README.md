@@ -35,13 +35,13 @@ Then in a browser navigate to http://localhost:8000/
 
 ## Running on Cloud Foundry
 
-You can see the app running at [http://circles.demo.cujojs.com/](http://circles.demo.cujojs.com/).
+You can see the app running at [http://cujojs-circles.cloudfoundry.com/](http://cujojs-circles.cloudfoundry.com/).
 
     $ cf apps
     Getting applications in production... OK
     
     name      status    usage      plan   url                    
-    circles   running   3 x 128M   dev    circles.demo.cujojs.com
+    circles   running   3 x 128M   dev    cujojs-circles.cloudfoundry.com
 
 Deploying to Cloud Foundry is simple.  There are just a couple things to keep in mind:
 * run `npm install` before `cf push`
