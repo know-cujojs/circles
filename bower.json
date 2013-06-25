@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"curl": "~0.7",
+		"curl": "~0.7.4",
 		"clicks": "~0.1",
 		"msgs": "~0.3"
 	}

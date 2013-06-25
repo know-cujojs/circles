@@ -84,14 +84,15 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-buster');
 	grunt.loadNpmTasks('grunt-css');
 	grunt.loadNpmTasks('grunt-html');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Use buster for testing
 	grunt.registerTask('test', 'buster');
 
 	// csslint and htmllint appears to be broken, don't use it yet.
-	// grunt.registerTask('lintall', 'lint csslint htmllint');
-	grunt.registerTask('lintall', 'lint');
+	// grunt.registerTask('lintall', ['lint', 'csslint', 'htmllint']);
+	grunt.registerTask('lintall', ['jshint']);
 
-	grunt.registerTask('default', 'lintall test');
+	grunt.registerTask('default', ['lintall','test']);
 
 };

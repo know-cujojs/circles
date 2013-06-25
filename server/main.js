@@ -57,7 +57,7 @@ if (process.env.VCAP_SERVICES) {
 	msgs.redisGateway(redis.createClient, 'circles', { output: 'toClient', input: 'fromClient' });
 }
 else {
-	console.log('Configuraing for a single instance');
+	console.log('Configuring for a single instance');
 	// pass message directly from the 'fromClient' channel to the 'toClient' channel
 	msgs.forward('fromClient', 'toClient');
 }
