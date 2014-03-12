@@ -6,9 +6,5 @@ applications:
   url: circles.demo.cujojs.com
   path: .
   services:
-    redis-circles:
-      label: redis
-      provider: core
-      version: '2.6'
-      plan: '100'
+  - circles-rediscloud
   command: node .
