@@ -7,10 +7,6 @@
 
 var http, express, sockjs, redis, msgs, path, host, port, app, server, ws;
 
-if (process.env.VCAP_APPLICATION) {
-	require('cf-autoconfig');
-}
-
 http = require('http');
 express = require('express');
 sockjs = require('sockjs');
@@ -23,8 +19,8 @@ require('msgs/adapters/redis');
 require('msgs/channels/pubsub');
 
 path = process.env.PWD + '/client';
-host = '127.0.0.1';
-port = process.env.PORT || 8000;
+host = process.env.VCAP_APP_HOST || '127.0.0.1';
+port = process.env.PORT || process.env.VCAP_APP_PORT || 8000;
 
 // create http server
 app = express();
@@ -41,6 +37,15 @@ app.configure(function () {
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+function createRedisClient() {
+	if (process.env.VCAP_SERVICES) {
+		var credentials = JSON.parse(process.env.VCAP_SERVICES)['rediscloud-n/a'][0].credentials;
+		var client = redis.createClient(credentials.port, credentials.hostname, { no_ready_check: true });
+		client.auth(credentials.password);
+		return client;
+	}
+	return redis.createClient();
+}
 
 // create channels
 msgs.pubsubChannel('fromClient');
@@ -54,7 +59,7 @@ ws.on('connection', function (connection) {
 if (process.env.VCAP_SERVICES) {
 	console.log('Configuring with Redis');
 	// broadcast message to every other server ndoe via Redia pub/sub
-	msgs.redisGateway(redis.createClient, 'circles', { output: 'toClient', input: 'fromClient' });
+	msgs.redisGateway(createRedisClient, 'circles', { output: 'toClient', input: 'fromClient' });
 }
 else {
 	console.log('Configuraing for a single instance');

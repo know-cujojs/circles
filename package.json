@@ -10,8 +10,7 @@
     "msgs": "~0.3",
     "sockjs": "",
     "redis": "",
-    "bower": "",
-    "cf-autoconfig": ""
+    "bower": "~1.0"
   },
   "devDependencies": {
     "buster": "",

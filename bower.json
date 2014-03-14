@@ -1,4 +1,5 @@
 {
+    "name": "circles",
 	"dependencies": {
 		"curl": "~0.7",
 		"clicks": "~0.1",
