@@ -2,7 +2,7 @@
   "name": "circles",
   "description": "Yay circles!",
   "homepage": "http://github.com/know-cujojs/cirlces",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [],
   "main": "server/main",
   "dependencies": {
