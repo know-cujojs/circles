@@ -39,7 +39,7 @@ app.configure(function () {
 
 function createRedisClient() {
 	if (process.env.VCAP_SERVICES) {
-		var credentials = JSON.parse(process.env.VCAP_SERVICES)['rediscloud-n/a'][0].credentials;
+		var credentials = JSON.parse(process.env.VCAP_SERVICES)['rediscloud'][0].credentials;
 		var client = redis.createClient(credentials.port, credentials.hostname, { no_ready_check: true });
 		client.auth(credentials.password);
 		return client;
